@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-petclinic-microservices
+  labels:
+    app: spring-petclinic-microservices
+  namespace: namespace-workflow-1716431530746
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-petclinic-microservices
+  template:
+    metadata:
+      labels:
+        app: spring-petclinic-microservices
+    spec:
+      containers:
+        - name: spring-petclinic-microservices
+          image: acrworkflow1716431530746.azurecr.io/image-workflow-1716431530746:latest
+          ports:
+            - containerPort: 8080
